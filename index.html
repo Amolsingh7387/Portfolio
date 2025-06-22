@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amol Stories - Photography</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styling */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000000;
+      color: #ffffff;
+      transition: background-color 0.3s ease;
+      animation: bodyLoad 1s ease-out;
+    }
+
+    /* Page Load Animation */
+    @keyframes bodyLoad {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Logo Animation on Page Load */
+    .logo {
+      opacity: 0;
+      transform: scale(0.8);
+      animation: logoAnimation 1s ease-out forwards;
+      margin-top: 50px;
+      width: 200px;  /* Adjust width as needed */
+      height: auto;
+      transition: transform 0.3s ease;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @keyframes logoAnimation {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .logo:hover {
+      transform: scale(1.2);  /* Slight zoom effect on hover */
+    }
+
+    /* Header Animation */
+    header {
+      background: url('hero.jpg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin: 10px 0 20px;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      background: #ff6600;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #ff6e0d;
+      transform: scale(1.1);
+    }
+
+    /* Section Styling */
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ff6e0d;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    /* About Text Animation */
+    section p {
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideIn 1.5s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Contact Section */
+    .contact-info {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-info a {
+      color:#42f705; /* Green color */
+      font-weight: bold;
+    }
+
+    /* Booking Section */
+    #booking {
+      background: #000000;
+      padding: 60px 20px;
+    }
+
+    .booking-form {
+      max-width: 800px;
+      margin: auto;
+      background: #000000;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .booking-form input,
+    .booking-form textarea,
+    .booking-form button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .booking-form button {
+      background-color: #ff6600;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .booking-form button:hover {
+      background-color: #cc5200;
+    }
+
+    /* Footer Animation */
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: footerAnimation 1s ease-out forwards;
+    }
+
+    @keyframes footerAnimation {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer a {
+      color: #ff6600;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    /* Smooth Scroll Effect */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo added before the header -->
+  <img src="https://uploads.onecompiler.io/43nbx8kbx/43nc2zvds/1750444745910.png" alt="Amol Stories Logo" class="logo" />
+
+  <header>
+    <h1>Amol Singh Stories</h1>
+    <p> Capture the Soul </p>
+    <a href="#portfolio" class="btn">Explore My Work</a>
+  </header>
+  
+   <section>
+    <h2 class="section-title">About me</h2>
+    <p style="text-align: center; max-width: 800px; margin: auto;">
+      <p>Hello! I’m <strong>Amol Singh</strong> Based in Nagpur, I’m a passionate photographer and cinematographer specializing in weddings, events, portraits, and cinematic storytelling.For me photography is not just about clicking pictures – it’s about freezing feelings. I strive to capture the real emotions, the unspoken moments, and the magic that makes your day unforgettable.</p>
+</section>
+  
+  
+  
+  <section id="services" class="services">
+  <h2 class="section-title">What We Offer</h2>
+  <ul>
+    <li>Wedding Photography & Cinematography</li>
+    <li>Pre-Wedding Shoots</li>
+    <li>Events & Portraits</li>
+    <li>Candid & Traditional Photography</strong>
+  </ul>
+  <p><strong>Add-ons:</strong> Drone Coverage, Instagram Reels, Custom Albums</p>
+</section>
+
+<section id="portfolio">
+   <h2 class="section-title">Photography Portfolio</h2>
+  <h2>Portfolio</h2>
+  <!-- Replace with real images -->
+  <img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/8by14sd.jpg" alt="Wedding Photo 1" width="100%">
+  <img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/8by14.jpg" alt="Pre-Wedding Photo 2" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/16by20.jpg" alt="Pre-Wedding Photo 3" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/18by27..jpg" alt="Pre-Wedding Photo 4" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/18by27.jpg" alt="Pre-Wedding Photo 5" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/12by18dsfsdf.jpg" alt="Pre-Wedding Photo 6" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/12by22jguigiuj.jpg" alt="Pre-Wedding Photo 7" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/12by18bhdkf.jpg" alt="Pre-Wedding Photo 8" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/12by18%20...jpg" alt="Pre-Wedding Photo 9" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/12by16.jpg" alt="Pre-Wedding Photo 10" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/18%20by%2030%20frame.jpg" alt="Wedding Photo 1" width="100%">
+ <img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/12by18khgkjd.jpg" alt="Pre-Wedding Photo 2" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/10by18fd.jpg" alt="Pre-Wedding Photo 3" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/16by24%20f2.jpg" alt="Pre-Wedding Photo 4" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/12by18jgj.jpg" alt="Pre-Wedding Photo 5" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/16by24....jpg" alt="Pre-Wedding Photo 6" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/12by18dgfd.jpg" alt="Pre-Wedding Photo 7" width="100%">
+<img src="https://uploads.onecompiler.io/43nbx8kbx/43nhkmd4v/12by22.jpg" alt="Pre-Wedding Photo 8" width="100%">
+<img src="https://ik.imagekit.io/ram7387/12by18sfs.jpg?updatedAt=1750613340324" alt="Pre-Wedding Photo 9" width="100%">
+<img src="https://ik.imagekit.io/ram7387/12by18fddsf.jpg?updatedAt=1750613776485" alt="Pre-Wedding Photo 10" width="100%">
+<img src="https://ik.imagekit.io/ram7387/12by18.......jpg?updatedAt=1750613776492" alt="Pre-Wedding Photo 9" width="100%">
+<img src="https://ik.imagekit.io/ram7387/10by18fssd.jpg?updatedAt=1750613775719" alt="Pre-Wedding Photo 10" width="100%">
+<img src="https://ik.imagekit.io/ram7387/10by12.jpg?updatedAt=1750613778055" alt="Pre-Wedding Photo 9" width="100%">
+<img src="https://ik.imagekit.io/ram7387/8by12fgfdg.jpg?updatedAt=1750613776121" alt="Pre-Wedding Photo 10" width="100%">
+<img src="https://ik.imagekit.io/ram7387/8by8.jpg?updatedAt=1750613776869" alt="Pre-Wedding Photo 9" width="100%">
+<img src="https://ik.imagekit.io/ram7387/8by12.jpg?updatedAt=1750613776663" alt="Pre-Wedding Photo 10" width="100%">
+<img src="https://ik.imagekit.io/ram7387/12by21.jpg?updatedAt=1750613778520" alt="Pre-Wedding Photo 10" width="100%">
+
+</section>
+
+<section id="contact" class="contact-info">
+  <h2>Contact Me</h2>
+  <p> &#127757 Nagpur & Amrawati</p>
+  <p> &#128222 <a href="tel:+917387736143">+917387736143</a>
+  <p> &#128229 <a href="mailto: asartistinfo@gmail.com">asartistinfo@gmail.com</a></p>
+  <p> &#128248 <a href="https://www.instagram.com/amol_singh_stories" target="_blank">@amol_singh_stories</a>
+  </p>
+ &#128242 <a href="https://wa.me/7387736143?text=Hello Sir" class="whatsapp-btn" target="_blank">Chat on WhatsApp</a>
+</section>
+
+  <!-- New Booking Section -->
+  <section id="booking">
+    <h2 class="section-title">Book a Session</h2>
+    <form class="booking-form" action="https://formspree.io/f/movwnpgl" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="text" name="phone" placeholder="Your Phone Number" required />
+      <textarea name="message" rows="4" placeholder="Tell me about your photography needs..." required></textarea>
+      <button type="submit">Submit Booking</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Amol Stories. All rights reserved. | <a href="#booking">Book a Session</a></p>
+  </footer>
+
+</body>
+</html>
